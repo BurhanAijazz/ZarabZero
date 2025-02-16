@@ -4,49 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zarab Zero</title>
     <link rel="stylesheet" href="zarabZero.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li>
-                Zarab Zero
-            </li>
-            <li>-</li>
-            <li>
-                (Kashmiri Tic Tac Toe)
-            </li>
-        </ul>
-    </nav>
-    <div class="gameContainer">
-        <div class="Container">
-            <div class="box l t"><span class="boxText"></span></div>
-            <div class="box t"><span class="boxText"></span></div>
-            <div class="box t r"><span class="boxText"></span></div>
-            <div class="box l"><span class="boxText"></span></div>
-            <div class="box"><span class="boxText"></span></div>
-            <div class="box r"><span class="boxText"></span></div>
-            <div class="box l b"><span class="boxText"></span></div>
-            <div class="box b"><span class="boxText"></span></div>
-            <div class="box b r"><span class="boxText"></span></div>
-        </div>
-        <div class="gameinfo">
-            <h1>Welcome to Zarab Zero </h1>
-            <span class="info">Turn for X</span>
-            <button id="reset">Reset</button>
-            <div class="imgbox">
-
-                <img class="gif " src="giphy.gif" alt="You won">
-            </div>
+    <!-- Start Screen -->
+    <div id="startScreen" class="start-screen">
+        <h1>Welcome to Zarab Zero!</h1>
+        <div class="mode-select">
+            <button id="localMode">Local Multiplayer</button>
+            <button id="onlineMode">Online Multiplayer</button>
         </div>
     </div>
-    <footer>
-        <span>Developed by:Burhan Aijaz</span>
-    </footer>
-    <script>src = "zarabZero.js"</script>
+
+    <!-- Game Screen (Hidden by Default) -->
+    <div id="gameScreen" class="game-screen" style="display: none;">
+        <nav>
+            <div class="logo">
+                <h1>Zarab Zero</h1>
+                <p>(Kashmiri Tic Tac Toe)</p>
+            </div>
+            <button id="homeButton">Home</button>
+        </nav>
+
+        <div class="gameContainer">
+            <div class="Container">
+                <div class="box l t" data-index="0"><span class="boxText"></span></div>
+                <div class="box t" data-index="1"><span class="boxText"></span></div>
+                <div class="box t r" data-index="2"><span class="boxText"></span></div>
+                <div class="box l" data-index="3"><span class="boxText"></span></div>
+                <div class="box" data-index="4"><span class="boxText"></span></div>
+                <div class="box r" data-index="5"><span class="boxText"></span></div>
+                <div class="box l b" data-index="6"><span class="boxText"></span></div>
+                <div class="box b" data-index="7"><span class="boxText"></span></div>
+                <div class="box b r" data-index="8"><span class="boxText"></span></div>
+            </div>
+            <div class="gameinfo">
+                <h1 id="gameMessage">Welcome to Zarab Zero!</h1>
+                <span class="info">Turn for X</span>
+                <button id="reset">Reset</button>
+                <div class="imgbox">
+                    <img id="winGif" class="gif" src="giphy.gif" alt="You won">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <span>Developed by: Burhan Aijaz</span>
+        </footer>
+    </div>
+
+
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal">
+        <h2 id="modalMessage"></h2>
+        <img id="drawGif" class="gif" src="images/draw.gif" alt="It's a draw">
+        <img id="modalGif" class="gif" src="images/win.gif" alt="You won">
+        <button id="modalButton">Play Again</button>
+    </div>
+    <audio id="clickSound" src="sounds/click.mp3"></audio>
+    <audio id="winSound" src="sounds/win.mp3"></audio>
+    <audio id="drawSound" src="sounds/draw.mp3"></audio>
+
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"></script>
+
+    <!-- Your JavaScript -->
+    <script src="zarabZero.js"></script>
 </body>
 
 </html>

@@ -98,7 +98,7 @@ function checkForWinner() {
     if (!gameState.includes('')) {
         gameMessage.textContent = 'It\'s a draw! Play again.';
         drawSound.play();
-        showModal('It\'s a draw! Play again.');
+        showModal('It\'s a draw!');
         gameActive = false;
     }
 }
